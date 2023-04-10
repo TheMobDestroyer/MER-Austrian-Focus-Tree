@@ -1,0 +1,6 @@
+spriteTypes = {
+	spriteType = {
+		name = "GFX_portrait_Arthur_Seyss_Inquart"
+		texturefile = "gfx/leaders/AUS/Portrait_Austria_Arthur_Seyss-Inquart.dds"
+	}
+}

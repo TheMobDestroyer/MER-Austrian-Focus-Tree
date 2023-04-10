@@ -1,0 +1,78 @@
+spriteTypes = {	
+	SpriteType = { 
+		name = "GFX_SIA_AST_handshake"
+		texturefile = "gfx/interface/goals/GFX_SIA_AST_handshake.png"
+	}
+	SpriteType = { 
+		name = "GFX_AUS_HUN_CRO"
+		texturefile = "gfx/interface/goals/GFX_AUS_HUN_CRO.png"
+	}
+	SpriteType = { 
+		name = "GFX_AUS_empire_coat_of_arms"
+		texturefile = "gfx/interface/goals/GFX_AUS_empire_coat_of_arms.png"
+	}
+	SpriteType = { 
+		name = "GFX_AUS_HUN_alliance"
+		texturefile = "gfx/interface/goals/GFX_AUS_HUN_alliance.png"
+	}
+	SpriteType = { 
+		name = "GFX_AUS_empire"
+		texturefile = "gfx/interface/goals/GFX_AUS_empire.png"
+	}
+	SpriteType = { 
+		name = "GFX_AUS_ballot"
+		texturefile = "gfx/interface/goals/GFX_AUS_ballot.png"
+	}
+	SpriteType = { 
+		name = "GFX_generic_ballot"
+		texturefile = "gfx/interface/goals/GFX_generic_ballot.png"
+	}
+	SpriteType = { 
+		name = "GFX_AUS_fatherland_crushed"
+		texturefile = "gfx/interface/goals/GFX_AUS_fatherland_crushed.png"
+	}
+	SpriteType = { 
+		name = "GFX_AUS_kill_kurt"
+		texturefile = "gfx/interface/goals/GFX_AUS_kill_kurt.dds"
+	}
+	SpriteType = { 
+		name = "GFX_AUS_flag"
+		texturefile = "gfx/interface/goals/GFX_AUS_flag.png"
+	}
+	SpriteType = { 
+		name = "GFX_AUS_fatherland"
+		texturefile = "gfx/interface/goals/GFX_AUS_fatherland.png"
+	}
+	SpriteType = { 
+		name = "GFX_SWI_deal"
+		texturefile = "gfx/interface/goals/GFX_SWI_deal.png"
+	}
+	SpriteType = { 
+		name = "GFX_AUS_soviets"
+		texturefile = "gfx/interface/goals/GFX_AUS_soviets.png"
+	}
+	SpriteType = { 
+		name = "GFX_AUS_GER_break_treaty"
+		texturefile = "gfx/interface/goals/GFX_AUS_GER_break_treaty.png"
+	}
+	SpriteType = { 
+		name = "GFX_AUS_ENG_handshake"
+		texturefile = "gfx/interface/goals/GFX_AUS_ENG_handshake.png"
+	}
+	SpriteType = { 
+		name = "GFX_AUS_ENG_FRA_flags"
+		texturefile = "gfx/interface/goals/GFX_AUS_ENG_FRA_flags.png"
+	}
+	SpriteType = { 
+		name = "GFX_AUS_alpine"
+		texturefile = "gfx/interface/goals/GFX_AUS_alpine.png"
+	}
+	SpriteType = {
+		name = "GFX_AUS_SWI_deal"
+		texturefile = "gfx/interface/goals/GFX_AUS_SWI_deal.png"
+	}
+	SpriteType = {
+		name = "GFX_CZE_highway"
+		texturefile = "gfx/interface/goals/GFX_CZE_highway.png"
+	}
+}

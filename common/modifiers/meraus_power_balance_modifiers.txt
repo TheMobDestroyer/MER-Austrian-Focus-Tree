@@ -1,0 +1,4 @@
+
+AUS_nazi_sympathiser_modifier = {
+	power_balance_weekly = 0.002
+}
