@@ -251,6 +251,7 @@
  AUS_integrate_bohemian_territories:0 "Integrate Bohemian Territories"
  AUS_demand_veneto_and_tyrol:0 "Demand Venetia and Tyrol"
  AUS_liberate_ukraine:0 "Liberate Ukraine"
+ AUS_liberate_ukraine_evil:0 ""Liberate" Ukraine"
  AUS_tap_into_vienna_basin_oil:0 "Tap Into Vienna Basin Oil"
  AUS_exploit_iron_deposits:0 "Exploit Iron Deposits"
  AUS_industrial_investment:0 "Regional Industrial Investment"

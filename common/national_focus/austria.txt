@@ -748,6 +748,74 @@
 		}
 	}
 	focus = {
+		id = AUS_liberate_africa
+		icon = GFX_goal_generic_military_sphere
+		x = 0
+		y = 3
+		relative_position_id = AUS_a_third_way
+		prerequisite = { focus = AUS_align_the_non-aligned }
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			is_faction_leader = yes
+			
+		}
+		
+		bypass = {
+			
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			
+			every_possible_country = {
+				limit = {
+					capital_scope = {
+						is_on_continent = africa 
+					}
+					any_core_state = {
+						is_owned_and_controlled_by = ROOT
+					}
+				}
+				AUS = {
+					release_puppet = PREV 
+				}
+			}
+			every_other_country = {
+				limit = {
+					NOT = {
+						is_subject_of = ROOT 
+					}
+					any_owned_state = {
+						is_on_continent = africa 
+					}
+					OR = {
+						capital_scope = {
+							NOT = { is_on_continent = africa }
+						}
+						overlord = {
+							capital_scope = {
+								NOT = { is_on_continent = africa }
+							}
+						}
+					}
+				}
+				ROOT = {
+					create_wargoal = {
+						target = PREV
+						type = liberate_wargoal
+					}
+				}
+			}
+		}
+	}
+	focus = {
 		id = AUS_invite_yugoslavia_2
 		icon = GFX_YUG_cool_deal
 		x = 1
@@ -824,6 +892,112 @@
 		relative_position_id = AUS_align_the_non-aligned
 		cost = 10
 		prerequisite = { focus = AUS_liberate_the_east focus = AUS_crush_the_bear }
+		allow_branch = { NOT = { has_completed_focus = AUS_release_nazi_collaborators } }
+		mutually_exclusive = { focus = AUS_italy_warr }
+		cancel = {
+			cancel_if_invalid = no
+		}
+		will_lead_to_war_with = SOV
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			UKR = {
+				all_core_state = {
+					if = {
+						limit = {
+							is_core_of = SOV 
+						}
+						controller = {
+							OR = {
+								tag = root 
+								is_subject_of = ROOT
+								AND = {
+									is_ai = yes
+									is_in_faction_with = ROOT
+								}
+							}
+						}
+					}
+				}	
+			}
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			if = {
+				limit = {
+					UKR = { exists = no }
+				}
+				every_state = {
+					limit = {
+						is_core_of = SOV
+						is_core_of = UKR 
+					}
+					transfer_state_to = UKR  
+				}
+				puppet = UKR
+				if = {
+					limit = {
+						has_completed_focus = AUS_crush_the_bear
+					}
+					UKR = { set_cosmetic_tag = RKU }
+				}
+			}
+			else_if = {
+				limit = {
+					RKU = { exists = no }
+				}
+				if = {
+					limit = {
+						NOT = { has_completed_focus = AUS_crush_the_bear }
+					}
+					hidden_effect = { RKU = { set_cosmetic_tag = UKR } }
+				}
+				every_state = {
+					limit = {
+						is_core_of = SOV
+						is_core_of = UKR 
+					}
+					transfer_state_to = RKU  
+					add_core_of = RKU
+				}
+				puppet = RKU
+				
+			}
+			else = {
+				create_dynamic_country = {
+					original_tag = UKR 
+					save_event_target_as = UKR_dynamic
+						every_state = {
+							limit = {
+								is_core_of = SOV
+								is_core_of = UKR 
+							}
+							transfer_state_to = event_target:UKR_dynamic
+						}
+					ROOT = { puppet = event_target:UKR_dynamic }
+				}
+			}
+		}
+	}
+	focus = {
+		id = AUS_liberate_ukraine_evil
+		icon = GFX_focus_POL_ukrainian_army
+		x = 5
+		y = 4
+		relative_position_id = AUS_align_the_non-aligned
+		cost = 10
+		prerequisite = { focus = AUS_liberate_the_east focus = AUS_crush_the_bear }
+		allow_branch = { has_completed_focus = AUS_release_nazi_collaborators }
 		mutually_exclusive = { focus = AUS_italy_warr }
 		cancel = {
 			cancel_if_invalid = no
@@ -1036,6 +1210,7 @@
 				mission = AUS_anschluss_imminent_decision
 				days = -35
 			}
+			mark_focus_tree_layout_dirty = yes 
 		}
 	}
 	focus = {
