@@ -35,5 +35,45 @@ leader_traits = {
 			factor = 1
 		}
 	}
+	president_of_austria = {
+		random = no
+		stability_factor = 0.05
+		trade_laws_cost_factor = -0.20
+		mobilization_laws_cost_factor = -0.20
+		economy_cost_factor = -0.20
+		high_command_cost_factor = -0.20
+		air_chief_cost_factor = -0.20
+		army_chief_cost_factor = -0.20
+		navy_chief_cost_factor = -0.20
+	}
+	stalinist_journalist = {
+		random = no
+		communism_drift = 0.05
+		political_power_factor = 0.05
+		stability_factor = 0.1
+
+		ai_will_do = {
+			factor = 2
+		}
+	}
+	communist_recruiter = {
+		random = no
+		communism_drift = 0.05
+		stability_factor = -0.1
+		war_support_factor = 0.1
+		conscription_factor = 0.1
+	}
+	bildungsreferent = {
+		random = no
+		communism_drift = 0.02
+		research_speed_factor = 0.1
+	}
+	social_economist = {
+		random = no
+		communism_drift = 0.03
+		production_factory_max_efficiency_factor = 0.05
+		consumer_goods_factor = -0.025
+		offensive_war_stability_factor = -0.15
+	}
 
 }

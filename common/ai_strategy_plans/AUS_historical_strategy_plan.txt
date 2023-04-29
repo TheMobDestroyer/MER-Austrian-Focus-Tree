@@ -6,6 +6,7 @@ CZE_historical_strategy_plan = {
 		original_tag = AUS
 	}
 	enable = {
+		always = no 
 		OR = {
 			AND = {
 				is_historical_focus_on = yes
@@ -14,6 +15,7 @@ CZE_historical_strategy_plan = {
 				#	option = DEFAULT
 				#}
 			}
+			
 			has_country_flag = AUS_AI_RANDOM_HISTORICAL
 			has_game_rule = {
 				rule = AUS_ai_behavior
@@ -22,17 +24,17 @@ CZE_historical_strategy_plan = {
 		}
 	}
 	abort = {
-		
-		GER = {
-			not = {
-				has_government = fascism
-			}
-		}
-		
-		has_game_rule = {
-			rule = AUS_ai_behavior
-			option = DEFAULT
-		}
+		always = yes
+		#GER = {
+		#	not = {
+		#		has_government = fascism
+		#	}
+		#}
+		#
+		#has_game_rule = {
+		#	rule = AUS_ai_behavior
+		#	option = DEFAULT
+		#}
 	}
 
 	ai_national_focuses = {

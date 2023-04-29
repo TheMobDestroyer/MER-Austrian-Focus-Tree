@@ -18,16 +18,17 @@ characters={
 		portraits={
 			civilian={
 				large=GFX_portrait_AUS_karl_renner
+				small="GFX_idea_generic_political_advisor_europe_3"
 			}
 		}
 		advisor = {
 			slot = political_advisor
-			idea_token = AUS_arthur_seyss-inquart
+			idea_token = AUS_karl_renner
 			allowed  = {
 					original_tag  = AUS
 				}
 			available = {
-				has_completed_focus = AUS_release_nazi_collaborators
+				has_completed_focus = AUS_deradicalise_regime
 			}
 			traits  = {
 				SWI_social_democrat 
@@ -71,7 +72,7 @@ characters={
 		name=AUS_alfred_klahr
 		portraits={
 			civilian={
-				large=GFX_portrait_AUS_alfred_klahr
+				large=GFX_portrait_austria_alfred_klahr
 			}
 		}
 		country_leader={
@@ -530,6 +531,132 @@ characters={
 		portraits = {
 			army = {
 				small="GFX_idea_generic_political_advisor_europe_1"
+			}
+		}
+	}
+	AUS_wilhelm_miklas = {
+		
+		name = AUS_wilhelm_miklas
+		advisor = {
+			slot = political_advisor
+			idea_token = AUS_wilhelm_miklas
+			traits = {
+				president_of_austria
+			}
+			allowed = { original_tag = AUS }
+			
+		}
+		portraits = {
+			army = {
+				small="GFX_idea_generic_political_advisor_europe_2"
+			}
+		}
+	}
+	AUS_otto_maschl = { #anti-stalinist
+		
+		name = AUS_otto_maschl
+		advisor = {
+			slot = political_advisor
+			idea_token = AUS_otto_maschl
+			traits = {
+				revolutionary_author
+			}
+			allowed = { original_tag = AUS }
+			
+		}
+		portraits = {
+			civilian = {
+				small="GFX_idea_generic_political_advisor_europe_2"
+			}
+		}
+	}
+	AUS_hermann_lichtenegger = { #tradie
+		
+		name = AUS_hermann_lichtenegger
+		advisor = {
+			slot = political_advisor
+			idea_token = AUS_hermann_lichtenegger
+			traits = {
+				SWI_trade_unionist
+			}
+			allowed = { original_tag = AUS }
+			
+		}
+		portraits = {
+			civilian = {
+				small="GFX_idea_generic_political_advisor_europe_2"
+			}
+		}
+	}
+	AUS_ernst_fischer = { 
+		
+		name = AUS_ernst_fischer
+		advisor = {
+			slot = political_advisor
+			idea_token = AUS_ernst_fischer
+			traits = {
+				stalinist_journalist
+			}
+			allowed = { original_tag = AUS }
+			
+		}
+		portraits = {
+			civilian = {
+				small="GFX_idea_generic_political_advisor_europe_1"
+			}
+		}
+	}
+	AUS_grete_jost = { #"woman" - anti-sdapo
+		
+		name = AUS_grete_jost
+		advisor = {
+			slot = political_advisor
+			idea_token = AUS_grete_jost
+			traits = {
+				communist_recruiter
+			}
+			allowed = { original_tag = AUS }
+			
+		}
+		portraits = {
+			civilian = {
+				small="GFX_idea_generic_political_advisor_europe_3"
+			}
+		}
+	}
+	AUS_viktor_matejka = {
+		
+		name = AUS_viktor_matejka
+		advisor = {
+			slot = political_advisor
+			idea_token = AUS_viktor_matejka
+			traits = {
+				bildungsreferent
+			}
+			allowed = { original_tag = AUS }
+			
+		}
+		portraits = {
+			civilian = {
+				small="GFX_idea_generic_political_advisor_europe_3"
+			}
+		}
+	}
+	AUS_hanna_sturm = {
+		
+		name = AUS_hanna_sturm
+		advisor = {
+			slot = political_advisor
+			idea_token = AUS_hanna_sturm
+			traits = {
+				social_economist
+			}
+			allowed = { original_tag = AUS }
+			
+		}
+		portraits = {
+			civilian = {
+				small="GFX_idea_generic_political_advisor_europe_3"
 			}
 		}
 	}

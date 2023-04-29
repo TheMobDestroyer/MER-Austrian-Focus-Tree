@@ -91,6 +91,13 @@ recruit_character = AUS_eduard_barger
 recruit_character = AUS_arthur_seyss-inquart
 recruit_character = AUS_edmund_glaise-horstenau
 recruit_character = AUS_guido_schmidt
+recruit_character = AUS_wilhelm_miklas
+recruit_character = AUS_otto_maschl
+recruit_character = AUS_hermann_lichtenegger
+recruit_character = AUS_ernst_fischer
+recruit_character = AUS_grete_jost
+recruit_character = AUS_viktor_matejka
+recruit_character = AUS_hanna_sturm
 
 
 set_politics = {

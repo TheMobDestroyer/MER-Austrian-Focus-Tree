@@ -11,4 +11,8 @@ spriteTypes = {
 		name = "GFX_idea_arthur_seyss-inquart"
 		textureFile = "gfx/interface/ideas/idea_arthur_seyss-inquart.dds"
 	}
+	spriteType = {
+		name = "GFX_idea_AUS_strabag"
+		textureFile = "gfx/interface/ideas/idea_AUS_strabag.png"
+	}
 }

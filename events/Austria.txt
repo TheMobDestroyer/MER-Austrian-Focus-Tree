@@ -1475,7 +1475,7 @@ country_event = {
 		custom_effect_tooltip = GAME_OVER_TT
 		hidden_effect = {
 			country_event = {
-				id = austria.44
+				id = austria.45
 				days = 15
 			}
 			GER = {
@@ -1492,9 +1492,7 @@ country_event = {
 		ai_chance = {
 			factor = 0
 		}
-		uncomplete_national_focus = {
-			focus = AUS_referendum_of_independence
-		}
+		set_country_flag = AUS_not_ai
 	}
 }
 #Anschluss pre-event for Austria
