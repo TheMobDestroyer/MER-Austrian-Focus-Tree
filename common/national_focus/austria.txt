@@ -552,7 +552,7 @@
 		y = 2
 		relative_position_id = AUS_on_our_own
 		prerequisite = { focus = AUS_defense_against_germany focus = AUS_domestic_research_institutes }
-		cost = 10
+		cost = 5
 		ai_will_do = {
 			factor = 1
 		}
@@ -577,8 +577,8 @@
 			}
 			add_tech_bonus = {
 				name = AUS_steyr_guns
-				bonus = 1
-				uses = 2
+				bonus = 0.5
+				uses = 1
 				category = infantry_weapons
 			}
 		}
@@ -3286,7 +3286,10 @@
 			factor = 1
 		}
 		available = {
-			
+			SLO = { 
+				exists = yes 
+				has_war = no 
+			}
 		}
 		
 		bypass = {
@@ -5700,7 +5703,7 @@
 		x = 2
 		y = 2
 		relative_position_id = AUS_promote_corporatism
-		cost = 10
+		cost = 5
 		prerequisite = { focus = AUS_germans_against_germany }
 		ai_will_do = {
 			factor = 1
@@ -5782,7 +5785,7 @@
 	}
 	focus = {
 		id = AUS_raise_the_sturmkorps_brigades
-		icon = GFX_AUS_flag
+		icon = GFX_focus_generic_military_mission
 		x = -2
 		y = 1
 		relative_position_id = AUS_support_sudetens
@@ -6237,13 +6240,15 @@
 		x = 8
 		y = 2
 		relative_position_id = AUS_promote_corporatism
-		cost = 10
+		cost = 5
 		prerequisite = { focus = AUS_support_sudetens }
 		ai_will_do = {
 			factor = 1
 		}
 		available = {
-			
+			has_equipment = {
+				infantry_equipment > 1999
+			}
 		}
 		
 		bypass = {
@@ -6263,6 +6268,11 @@
 				remove_core_of = CZE
 				add_core_of = AUS
 				start_resistance = AUS
+			}
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = -2000
+				producer = AUS
 			}
 		}
 	}
@@ -6313,13 +6323,13 @@
 		x = 8
 		y = 4
 		relative_position_id = AUS_promote_corporatism
-		cost = 10
+		cost = 5
 		prerequisite = { focus = AUS_ally_slovak_nationalists }
 		ai_will_do = {
 			factor = 1
 		}
 		available = {
-			has_army_manpower = { size > 199999 }
+			has_army_manpower = { size > 149999 }
 		}
 		
 		bypass = {
