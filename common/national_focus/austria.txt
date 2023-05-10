@@ -63,7 +63,7 @@
 	focus = {
 		id = AUS_pro-austrian_propaganda
 		icon = GFX_goal_generic_allies_build_infantry
-		x = 26
+		x = 20
 		y = 0
 		offset = {
 			x = -24
@@ -413,7 +413,7 @@
 		x = -5
 		y = 4
 		relative_position_id = AUS_pro-austrian_propaganda
-		cost = 10
+		cost = 5
 		prerequisite = { focus = AUS_reinstate_habsburg_lorraine focus = AUS_promote_corporatism }
 		mutually_exclusive = { focus = AUS_germans_against_germany focus = AUS_release_nazi_collaborators }
 		ai_will_do = {
@@ -435,7 +435,8 @@
 		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
-			
+			add_country_leader_trait = headstrong
+			add_country_leader_trait = indomitable_perseverance
 		}
 	}
 	focus = {
@@ -696,10 +697,13 @@
 				is_faction_leader = yes
 				is_in_faction = no
 			}
+			NOT = {
+				has_completed_focus = AUS_regal_sentiment
+			}
 		}
 		
 		bypass = {
-			
+			is_faction_leader = yes 
 		}
 
 		cancel_if_invalid = yes
@@ -892,7 +896,8 @@
 		relative_position_id = AUS_align_the_non-aligned
 		cost = 10
 		prerequisite = { focus = AUS_liberate_the_east focus = AUS_crush_the_bear }
-		allow_branch = { NOT = { has_completed_focus = AUS_release_nazi_collaborators } }
+		allow_branch = { NOT = { has_completed_focus = AUS_release_nazi_collaborators has_completed_focus = AUS_deradicalise_regime } }
+		
 		mutually_exclusive = { focus = AUS_italy_warr }
 		cancel = {
 			cancel_if_invalid = no
@@ -997,7 +1002,7 @@
 		relative_position_id = AUS_align_the_non-aligned
 		cost = 10
 		prerequisite = { focus = AUS_liberate_the_east focus = AUS_crush_the_bear }
-		allow_branch = { has_completed_focus = AUS_release_nazi_collaborators }
+		allow_branch = { has_completed_focus = AUS_release_nazi_collaborators NOT = { has_completed_focus = AUS_deradicalise_regime } }
 		mutually_exclusive = { focus = AUS_italy_warr }
 		cancel = {
 			cancel_if_invalid = no
@@ -1107,10 +1112,8 @@
 			factor = 1
 		}
 		available = {
-			OR = {
-				is_faction_leader = yes
-				is_in_faction = no
-			}
+			is_in_faction = no
+			
 		}
 		
 		bypass = {
@@ -2025,6 +2028,12 @@
 		relative_position_id = AUS_reinstate_habsburg_lorraine
 		cost = 10
 		prerequisite = { focus = AUS_reinstate_habsburg_lorraine }
+		allow_branch = { 
+			NOT = { 
+				has_completed_focus = AUS_strengthen_fatherland_front 
+				has_completed_focus = AUS_deradicalise_regime
+			} 
+		}
 		mutually_exclusive = { focus = AUS_old_empire }
 		ai_will_do = {
 			factor = 1
@@ -2107,7 +2116,7 @@
 		x = 0
 		y = 2
 		relative_position_id = AUS_new_empire
-		cost = 5
+		cost = 10
 		prerequisite = { focus = AUS_integrate_liechtenstein_2 }
 		ai_will_do = {
 			factor = 1
@@ -2127,7 +2136,13 @@
 		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
-			
+			set_cosmetic_tag = AUS_german_empire
+			every_state = {
+				limit = {
+					has_state_flag = GER_INITIAL_STATE
+				}
+				add_claim_by = ROOT 
+			}
 		}
 	}
 	focus = {
@@ -2476,7 +2491,15 @@
 		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
-			
+			every_country = {
+				limit =	{
+					OR = {
+						tag = ROOT 
+						is_in_faction_with = ROOT 
+					}
+				}
+				add_ideas = strengthened_pact
+			}
 		}
 	}
 	focus = {
@@ -2485,7 +2508,7 @@
 		x = -3
 		y = 1
 		relative_position_id = AUS_maintain_the_pact
-		cost = 10
+		cost = 5
 		prerequisite = { focus = AUS_maintain_the_pact }
 		ai_will_do = {
 			factor = 1
@@ -2675,6 +2698,7 @@
 				}
 			}
 			dismantle_faction = yes
+			set_cosmetic_tag = AUS_german_big
 		}
 	}
 	focus = {
@@ -3091,8 +3115,10 @@
 			add_ideas = hungarian_resistance
 			every_state = {
 				limit = {
-					has_state_flag = HUN_INITIAL_STATE
-					
+					OR = {
+						is_core_of = CZE
+						has_state_flag = HUN_INITIAL_STATE
+					}
 				}
 				add_core_of = ROOT
 			}
@@ -3107,6 +3133,12 @@
 		relative_position_id = AUS_proclaim_empire
 		cost = 10
 		prerequisite = { focus = AUS_proclaim_empire focus = AUS_oppose_nazi_domination }
+		allow_branch = { 
+			NOT = { 
+				has_completed_focus = AUS_strengthen_fatherland_front 
+				has_completed_focus = AUS_deradicalise_regime
+			} 
+		}
 		mutually_exclusive = { focus = AUS_demand_slovenia }
 		ai_will_do = {
 			factor = 1
@@ -3144,6 +3176,12 @@
 		relative_position_id = AUS_proclaim_empire
 		cost = 10
 		prerequisite = { focus = AUS_proclaim_empire focus = AUS_oppose_nazi_domination }
+		allow_branch = { 
+			NOT = { 
+				has_completed_focus = AUS_strengthen_fatherland_front 
+				has_completed_focus = AUS_deradicalise_regime
+			} 
+		}
 		mutually_exclusive = { focus = AUS_yug_alliance }
 		ai_will_do = {
 			factor = 1
@@ -3199,7 +3237,7 @@
 				type = annex_everything
 				target = YUG
 			}
-			#add_ideas = croatian_resistance
+			add_ideas = croatian_resistance
 			#custom_effect_tooltip = AUS_YUG_cores_tt
 			unlock_decision_tooltip = AUS_integrate_illyria
 		}
@@ -3248,10 +3286,7 @@
 			factor = 1
 		}
 		available = {
-			has_war = no
-			any_owned_state = {
-				is_core_of = SDT
-			}
+			
 		}
 		
 		bypass = {
@@ -3281,14 +3316,11 @@
 			factor = 1
 		}
 		available = {
-			has_war = no
-			any_owned_state = {
-				is_core_of = SDT
-			}
+			SLO = { exists = yes }
 		}
 		
 		bypass = {
-
+			SLO = { exists = no }
 		}
 
 		cancel_if_invalid = yes
@@ -3297,7 +3329,7 @@
 		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
-			
+			SLO = { country_event = austria.25 }
 		}
 	}
 	focus = {
@@ -3313,14 +3345,11 @@
 			factor = 1
 		}
 		available = {
-			has_war = no
-			any_owned_state = {
-				is_core_of = SDT
-			}
+			SLO = { exists = yes }
 		}
 		
 		bypass = {
-
+			SLO = { exists = no }
 		}
 
 		cancel_if_invalid = yes
@@ -3329,7 +3358,10 @@
 		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
-			
+			create_wargoal = {
+				target = SLO 
+				type = annex_everything
+			}
 		}
 	}
 	focus = {
@@ -3744,7 +3776,7 @@
 	focus = {
 		id = AUS_cze_royalist_sentiment
 		icon = GFX_AUS_CZE_monarchist_deal
-		x = 4
+		x = 3
 		y = 1
 		relative_position_id = AUS_proclaim_empire
 		cost = 5
@@ -3775,7 +3807,7 @@
 	focus = {
 		id = AUS_cze_coup
 		icon = GFX_focus_rom_royal_dictatorship
-		x = -1
+		x = 0
 		y = 1
 		relative_position_id = AUS_cze_royalist_sentiment
 		cost = 10
@@ -3901,10 +3933,10 @@
 		id = AUS_demand_galicia
 		icon = GFX_take_galicia
 		x = 5
-		y = 2
+		y = 3
 		relative_position_id = AUS_proclaim_empire
 		cost = 10
-		prerequisite = { focus = AUS_cze_royalist_sentiment }
+		prerequisite = { focus = AUS_cze_coup focus = AUS_integrate_transylvania }
 		ai_will_do = {
 			factor = 1
 		}
@@ -3922,23 +3954,6 @@
 		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
-			every_country = {
-				limit = {
-					any_owned_state = {
-						OR = {
-							is_core_of = GAL
-							state = 1975
-							state = 1440
-							state = 1441
-							state = 526
-						}
-					}
-				}
-				country_event = {
-					id = austria.17
-					days = 2
-				}
-			}
 			every_state = {
 				limit = {
 					OR = {
@@ -3949,7 +3964,14 @@
 						state = 526
 					}
 				}
+				
 				add_core_of = ROOT
+				owner = {
+					country_event = {
+						id = austria.17
+						days = 2
+					}
+				}
 			}
 		}
 	}
@@ -4135,6 +4157,12 @@
 		relative_position_id = AUS_proclaim_empire
 		cost = 10
 		prerequisite = { focus = AUS_proclaim_empire focus = AUS_oppose_nazi_domination }
+		allow_branch = { 
+			NOT = { 
+				has_completed_focus = AUS_strengthen_fatherland_front 
+				has_completed_focus = AUS_deradicalise_regime
+			} 
+		}
 		mutually_exclusive = { focus = AUS_serenissima }
 		ai_will_do = {
 			factor = 1
@@ -4155,7 +4183,7 @@
 		completion_reward = {
 			ITA = {
 				country_event = {
-					id = wtt_germany.8
+					id = austria.47
 					days = 2
 				}
 				add_ideas = habsburg_sentiment
@@ -4188,21 +4216,27 @@
 
 		completion_reward = {
 			ITA = {
-				set_politics = {
-					ruling_party = neutrality
+				country_event = {
+					id = austria.50
+					days = 2
 				}
-				add_popularity = {
-					ideology = neutrality
-					popularity = 0.1
-				}
-				create_country_leader = {
-					name = "Victor Emmanuel III"
-					desc = "POLITICS_VICTOR_EMMANUEL_III_DESC"
-					picture = "GFX_portrait_italy_victor_emmanuel_iii"
-					expire = "1965.1.1"
-					ideology = oligarchism
-					traits = {
-						
+				effect_tooltip = {
+					set_politics = {
+						ruling_party = neutrality
+					}
+					add_popularity = {
+						ideology = neutrality
+						popularity = 0.1
+					}
+					create_country_leader = {
+						name = "Victor Emmanuel III"
+						desc = "POLITICS_VICTOR_EMMANUEL_III_DESC"
+						picture = "GFX_portrait_italy_victor_emmanuel_iii"
+						expire = "1965.1.1"
+						ideology = oligarchism
+						traits = {
+							
+						}
 					}
 				}
 			}
@@ -4217,6 +4251,12 @@
 		relative_position_id = AUS_proclaim_empire
 		cost = 10
 		prerequisite = { focus = AUS_proclaim_empire focus = AUS_oppose_nazi_domination }
+		allow_branch = { 
+			NOT = { 
+				has_completed_focus = AUS_strengthen_fatherland_front 
+				has_completed_focus = AUS_deradicalise_regime
+			} 
+		}
 		mutually_exclusive = { focus = AUS_prepare_italian_coup }
 		ai_will_do = {
 			factor = 1
@@ -4398,7 +4438,7 @@
 	focus = {
 		id = AUS_trans-danubian_railway
 		icon = GFX_goal_generic_construct_infrastructure
-		x = 2
+		x = 1
 		y = 1
 		relative_position_id = AUS_proclaim_empire
 		cost = 5
@@ -4430,13 +4470,51 @@
 		}
 	}
 	focus = {
-		id = AUS_transylvanian_highway_construction
-		icon = GFX_goal_generic_construct_infrastructure
+		id = AUS_integrate_transylvania
+		icon = GFX_focus_YUG_autonomous_transylvania
 		x = 0
 		y = 1
 		relative_position_id = AUS_demand_transylvania
 		cost = 10
 		prerequisite = { focus = AUS_demand_transylvania }
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			TRA = {
+				all_core_state = {
+					is_owned_by = ROOT
+				}
+			}
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			every_state = {
+				limit = {
+					is_core_of = TRA
+					NOT = { is_core_of = ROOT }
+				}
+				add_core_of = ROOT 
+			}
+		}
+	}
+	focus = {
+		id = AUS_transylvanian_highway_construction
+		icon = GFX_goal_generic_construct_infrastructure
+		x = 0
+		y = 2
+		relative_position_id = AUS_demand_transylvania
+		cost = 10
+		prerequisite = { focus = AUS_integrate_transylvania }
 		ai_will_do = {
 			factor = 1
 		}
@@ -4808,10 +4886,11 @@
 			factor = 1
 		}
 		available = {
-			CZE = {
-				exists = no
+			SDT = {
+				all_core_state = {
+					is_owned_by = ROOT 
+				}
 			}
-			owns_state = 9
 		}
 		
 		bypass = {
@@ -4824,29 +4903,11 @@
 		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
-			845 = {
-				add_building_construction = {
-					type = bunker
-					level = 4
-					instant_build = yes
-					province = {
-						all_provinces = yes
-						limit_to_border = yes
-					}
+			
+			every_state = {
+				limit = {
+					is_core_of = SDT 
 				}
-			}
-			69 = {
-				add_building_construction = {
-					type = bunker
-					level = 4
-					instant_build = yes
-					province = {
-						all_provinces = yes
-						limit_to_border = yes
-					}
-				}
-			}
-			74 = {
 				add_building_construction = {
 					type = bunker
 					level = 4
@@ -5693,7 +5754,7 @@
 	focus = {
 		id = AUS_distinguish_austria
 		icon = GFX_AUS_flag
-		x = -3
+		x = -4
 		y = 1
 		relative_position_id = AUS_support_sudetens
 		cost = 10
@@ -5717,6 +5778,78 @@
 		completion_reward = {
 			remove_ideas = pan_germanism_2
 			custom_effect_tooltip = AUS_GER_no_cores_tt
+		}
+	}
+	focus = {
+		id = AUS_raise_the_sturmkorps_brigades
+		icon = GFX_AUS_flag
+		x = -2
+		y = 1
+		relative_position_id = AUS_support_sudetens
+		cost = 10
+		prerequisite = { focus = AUS_germans_against_germany focus = AUS_support_sudetens }
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			division_template = { 
+			name = "Sturmkorps Division"
+			division_names_group = SOV_INF_01
+			is_locked = no
+			regiments = { 
+				infantry = { x = 0 y = 0 }
+				infantry = { x = 1 y = 0 }
+				infantry = { x = 2 y = 0 }
+
+				infantry = { x = 0 y = 1 }
+				infantry = { x = 1 y = 1 }
+				infantry = { x = 2 y = 1 }
+
+				infantry = { x = 0 y = 2 }
+				infantry = { x = 1 y = 2 }
+				infantry = { x = 2 y = 2 }
+			}
+			support = {
+				recon = { x = 0 y = 0 }
+				engineer = { x = 0 y = 1 }
+				artillery = { x = 0 y = 2 }
+			}
+		}
+		random_owned_controlled_state = {
+				create_unit = { 
+					division = "name = \"1. Sturmkorps Division\" division_template = \"Sturmkorps Division\" start_experience_factor = 0.5" 
+					owner = ROOT
+				}
+				create_unit = { 
+					division = "name = \"2. Sturmkorps Division\" division_template = \"Sturmkorps Division\" start_experience_factor = 0.5" 
+					owner = ROOT
+				}
+				create_unit = { 
+					division = "name = \"3. Sturmkorps Division\" division_template = \"Sturmkorps Division\" start_experience_factor = 0.5" 
+					owner = ROOT
+				}
+				create_unit = { 
+					division = "name = \"4. Sturmkorps Division\" division_template = \"Sturmkorps Division\" start_experience_factor = 0.5" 
+					owner = ROOT
+				}
+				create_unit = { 
+					division = "name = \"5. Sturmkorps Division\" division_template = \"Sturmkorps Division\" start_experience_factor = 0.5" 
+					owner = ROOT
+				}
+			}
 		}
 	}
 	focus = {
@@ -7954,7 +8087,7 @@
 		y = 3
 		relative_position_id = AUS_proclaim_new_republic
 		cost = 10
-		prerequisite = { focus = AUS_integrate_italian_alps focus = AUS_integrate_bohemian_territories }
+		prerequisite = { focus = AUS_integrate_italian_alps focus = AUS_integrate_bohemian_territories focus = AUS_integrate_french_alps}
 		ai_will_do = {
 			factor = 1
 		}
@@ -8034,7 +8167,7 @@
 		}
 		
 		bypass = {
-			
+			always = yes 
 		}
 
 		cancel_if_invalid = yes
@@ -8382,8 +8515,8 @@
 		x = 80
 		y = 0
 		cost = 5
-		offset = {
-			x = -24
+		offset = {  
+			x = -30 
 			y = 0
 			trigger = {
 				has_game_rule = {
@@ -8806,7 +8939,7 @@
 		y = 1
 		relative_position_id = AUS_army_modernisation
 		prerequisite = { focus = AUS_army_modernisation }
-		cost = 5
+		cost = 10
 		ai_will_do = {
 			factor = 1
 		}
@@ -8824,10 +8957,11 @@
 		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
+			add_ideas = gebirgsjager_programm
 			add_tech_bonus = {
 				name = AUS_gebirgsjager_programm
 				bonus = 1.00
-				uses = 2
+				uses = 1
 				category = mountaineers_tech
 			}
 		}

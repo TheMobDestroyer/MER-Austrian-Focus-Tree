@@ -1170,7 +1170,7 @@ ideas = {
 			}
 
 			allowed_civil_war = {
-				has_government = fascism
+				
 			}
 
 			removal_cost = -1
@@ -1190,7 +1190,7 @@ ideas = {
 			}
 
 			allowed_civil_war = {
-				has_government = fascism
+				
 			}
 
 			removal_cost = -1
@@ -1211,7 +1211,7 @@ ideas = {
 			}
 
 			allowed_civil_war = {
-				has_government = fascism
+				has_government = neutrality
 			}
 
 			removal_cost = -1
@@ -1232,7 +1232,7 @@ ideas = {
 			}
 
 			allowed_civil_war = {
-				has_government = fascism
+				has_government = neutrality
 			}
 
 			removal_cost = -1
@@ -1242,6 +1242,54 @@ ideas = {
 			modifier = {
 				neutrality_drift = 0.02
 				weekly_manpower = 1000
+			}
+		}
+		strengthened_pact = {
+			
+			allowed = {
+				always = no
+			}
+			cancel = {
+				NOT = {
+					is_in_faction_with = AUS 
+				}
+			}
+
+			allowed_civil_war = {
+				
+			}
+
+			removal_cost = -1
+
+			picture = generic_democratic_drift_bonus
+			
+			modifier = {
+				consumer_goods_factor = -0.025
+				army_attack_factor = 0.1
+				army_defence_factor = 0.1
+			}
+		}
+		gebirgsjager_programm = {
+			
+			allowed = {
+				always = no
+			}
+			cancel = {
+				
+			}
+
+			allowed_civil_war = {
+				
+			}
+
+			removal_cost = -1
+
+			picture = generic_manpower_bonus
+			
+			modifier = {
+				special_forces_cap	= 0.1
+				special_forces_attack_factor = 0.05
+				special_forces_defence_factor = 0.05
 			}
 		}
 	}

@@ -1,17 +1,3 @@
-@tier1 = 30
-@tier2 = 20
-@tier3 = 10
-
-@experience_gain_low = 0.03
-@experience_gain_medium = 0.06
-@experience_gain_high = 0.08
-
-@chief_experience_gain_low = 0.20
-@chief_experience_gain_medium = 0.30
-@chief_experience_gain_high = 0.40
-
-###Todo remove commented advisor experience gains
-
 leader_traits = {
 
 	minister_of_the_interior = {
@@ -24,6 +10,7 @@ leader_traits = {
 			factor = 1
 		}
 	}
+	
 	foreign_minister_of_austria = {
 		random = no
 		fascism_acceptance = 50
@@ -35,6 +22,7 @@ leader_traits = {
 			factor = 1
 		}
 	}
+	
 	president_of_austria = {
 		random = no
 		stability_factor = 0.05
@@ -46,6 +34,7 @@ leader_traits = {
 		army_chief_cost_factor = -0.20
 		navy_chief_cost_factor = -0.20
 	}
+	
 	stalinist_journalist = {
 		random = no
 		communism_drift = 0.05
@@ -56,6 +45,7 @@ leader_traits = {
 			factor = 2
 		}
 	}
+	
 	communist_recruiter = {
 		random = no
 		communism_drift = 0.05
@@ -63,11 +53,13 @@ leader_traits = {
 		war_support_factor = 0.1
 		conscription_factor = 0.1
 	}
+	
 	bildungsreferent = {
 		random = no
 		communism_drift = 0.02
 		research_speed_factor = 0.1
 	}
+	
 	social_economist = {
 		random = no
 		communism_drift = 0.03
@@ -75,5 +67,12 @@ leader_traits = {
 		consumer_goods_factor = -0.025
 		offensive_war_stability_factor = -0.15
 	}
-
+	
+	austrian_tenacity = {
+		random = no
+		political_power_gain = 0.1
+		#army_org_factor = 0.1
+		#army_org_regain = 0.05
+	}
+	
 }
