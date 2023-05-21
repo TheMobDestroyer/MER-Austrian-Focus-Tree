@@ -2023,7 +2023,7 @@
 	focus = {
 		id = AUS_new_empire
 		icon = GFX_focus_proclaim_the_restauration_of_Austria_Hungary
-		x = -15
+		x = -14
 		y = 1
 		relative_position_id = AUS_reinstate_habsburg_lorraine
 		cost = 10
@@ -6421,6 +6421,25 @@
 			}
 			custom_effect_tooltip = available_political_advisor
 			show_ideas_tooltip = AUS_karl_renner
+			set_politics = {
+				ruling_party = neutrality
+				elections_allowed = no 
+				name = "Vaterländische Front"
+				long_name = "Vaterländische Front"
+			}
+			set_temp_variable = { AUS_fasc_support = party_popularity@fascism }
+			add_popularity = {
+				ideology = fascism
+				popularity = -1
+			}
+			add_popularity = {
+				ideology = neutrality
+				popularity = AUS_fasc_support
+			}
+			hidden_effect = {
+				
+				set_cosmetic_tag = AUS_neutrality_not_monarchist
+			}
 		}
 	}
 	focus = {
@@ -8522,11 +8541,11 @@
 	focus = {
 		id = AUS_modern_machinery
 		icon = GFX_goal_generic_consumer_goods
-		x = 80
+		x = 72
 		y = 0
 		cost = 5
 		offset = {  
-			x = -30 
+			x = -22 
 			y = 0
 			trigger = {
 				has_game_rule = {
@@ -8540,7 +8559,7 @@
 			}
 		}
 		offset = {
-			x = -50
+			x = -48
 			y = 0
 			trigger = {
 				has_game_rule = {
